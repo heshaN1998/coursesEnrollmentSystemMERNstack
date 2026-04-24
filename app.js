@@ -1,8 +1,14 @@
 const express=require("express")
 const app=express()
 const PORT=3500
-const contextPathWithApiVersion="/course"
+const contextPathWithApiVersion="/courseregis/api/v1";
 
-app.get('${contextPathWithAPIVersion}/heartbeat',(req,res)=>{
+app.get(`${contextPathWithApiVersion}/heartbeat`,(req,res)=>{
     res.send("course enrollment system is working")
+})
+
+app.listen(PORT,()=>{
+    console.log("server started in port: ",PORT )
 });
+
+
