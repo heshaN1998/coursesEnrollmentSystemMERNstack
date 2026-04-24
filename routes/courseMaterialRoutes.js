@@ -6,7 +6,13 @@ const router=express.Router();
 
 /////////////path,              function
 router.get(courseMaterialURL,(req,res)=>{
-res.send("Tesh Rout")
+try {
+    const allMaterials=await courseMaterialService.getAllCourseMaterials()
+    return res.json(allMaterials)
+} catch (error) {
+    console.error("error fetching materials",err)
+    return res.status(500).json({error:"failed to fetch data"})
+}
 })
 
 // router.post(courseMaterialURL,courseMaterialURL,(req,res)=>{
