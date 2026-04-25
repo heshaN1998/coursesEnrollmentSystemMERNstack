@@ -1,10 +1,12 @@
 const express=require("express")
 const app=express()
-const PORT=3600
 const contextPathWithApiVersion="/courseregis/api/v1";
 //accesinhcourseMaterial Route in app.js
 const courseMaterialRoutes=require("./routes/courseMaterialRoutes")
 const mongoose=require("mongoose")
+
+require('dotenv').config()
+const PORT=process.env.PORT || 3500
 
 app.get(`${contextPathWithApiVersion}/heartbeat`,(req,res)=>{
     res.send("course enrollment system is working")
