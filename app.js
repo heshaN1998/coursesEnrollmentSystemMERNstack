@@ -7,7 +7,15 @@ const mongoose=require("mongoose")
 
 require('dotenv').config()
 const PORT=process.env.PORT || 3500
+const cors=require("cors")
 
+//handle CORS
+app.use(cors({
+    origin:['http://localhost:3000'],
+    method:['GET','POST','PUT','PATCH','DELETE','OPTION'],
+    method:['Content-Type','Autherization'],
+    credentials:true})
+);
 app.get(`${contextPathWithApiVersion}/heartbeat`,(req,res)=>{
     res.send("course enrollment system is working")
 })
