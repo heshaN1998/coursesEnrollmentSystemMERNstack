@@ -1,9 +1,10 @@
+const CourseMaterial=require("../model/courseMaterialModel")
 async function getAllMateriaks() {
-    
+   return CourseMaterial.find(); 
 }
 
-async function addCourseMaterial() {
-    
+async function addCourseMaterial(newMaterials) {
+    new CourseMaterial(newMaterials).save();
 }
 
 async function deleteCourseMaterial() {

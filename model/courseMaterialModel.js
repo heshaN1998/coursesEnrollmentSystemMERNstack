@@ -1,4 +1,4 @@
-const mongoose=require("mongoose")
+const mongoose=require("mongoose");
 
 const uploadDate=()=>{
     const timeStamp=Date.now()
@@ -15,4 +15,4 @@ const courseMaterialSchema=new mongoose.Schema({
     courseId:{type:String,required:true}
 })
 
-module.exports=mongoose.model("courseMaterialSchema")
+module.exports=mongoose.model("courseMaterial",courseMaterialSchema)
