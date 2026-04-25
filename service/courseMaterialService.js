@@ -10,7 +10,7 @@ async function addCourseMaterial(newMaterials) {
 async function deleteCourseMaterial() {
     
 }
-async function updateCourseMaterial() {
-    
+async function updateCourseMaterial(materialId,updateData) {
+    return CourseMaterial.findOneAndUpdate({material: materialId},updateData,{new:true})
 }
 module.exports={ getAllMateriaks,addCourseMaterial,updateCourseMaterial,deleteCourseMaterial}
