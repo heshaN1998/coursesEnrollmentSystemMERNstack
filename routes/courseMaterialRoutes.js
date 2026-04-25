@@ -73,7 +73,19 @@ try {
     })
  })
 
-// router.delete(`${courseMaterialURL}/:materialId`,(req,res)=>{
-    
-// })
+ router.delete(`${courseMaterialURL}/:materialId`,async (req,res)=>{
+    const { materialId }=req.params
+    console.log("deleting material by id")
+
+    try {
+        const deleteMat=await courseMaterialService.deleteCourseMaterial(material)
+        if(!deletedMat){
+            return res.status(400).send("course material not found")
+        }
+        res.send(204).send()
+    } catch (err) {
+        console.log(err)
+        return res.status(500).send("cannot process request")
+    }
+ })
 module.exports=router

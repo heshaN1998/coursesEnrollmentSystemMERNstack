@@ -8,7 +8,7 @@ async function addCourseMaterial(newMaterials) {
 }
 
 async function deleteCourseMaterial() {
-    
+    return CourseMaterial.findOneAndDelete({materialId})
 }
 async function updateCourseMaterial(materialId,updateData) {
     return CourseMaterial.findOneAndUpdate({material: materialId},updateData,{new:true})
