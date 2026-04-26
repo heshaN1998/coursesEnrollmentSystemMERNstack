@@ -1,12 +1,12 @@
 const User=require("../model/userModel")
-const bcrypyt=require("bcrypt")
-const { v4:uuid } =require.apply('uuid')
+const bcrypt=require("bcrypt")
+const { v4:uuid } =require('uuid')
 
 async function addUser(user){
     try {
         const hashPassword=await bycrypt.hash(useReducer.password,10)
         const newUser=new User({
-            userId:uuid(),
+            userId:uuid4(),
             firstName:user.lastName,
             lastName:user.lastName,
             email:user.email,

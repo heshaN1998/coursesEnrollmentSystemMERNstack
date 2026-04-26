@@ -4,6 +4,7 @@ const contextPathWithApiVersion="/courseregis/api/v1";
 //accesinhcourseMaterial Route in app.js
 const courseMaterialRoutes=require("./routes/courseMaterialRoutes")
 const mongoose=require("mongoose")
+const authRoutes=require("./routes/userRoute")
 
 require('dotenv').config()
 const PORT=process.env.PORT || 3500
@@ -21,6 +22,8 @@ app.get(`${contextPathWithApiVersion}/heartbeat`,(req,res)=>{
     res.send("course enrollment system is working")
 })
 app.use(contextPathWithApiVersion,courseMaterialRoutes)
+app.use(contextPathWithApiVersion,authRoutes)
+
 
 //database section
 mongoose.connect("mongodb://localhost:27017/courseregis")
