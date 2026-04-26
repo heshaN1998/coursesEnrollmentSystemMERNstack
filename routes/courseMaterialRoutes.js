@@ -5,6 +5,7 @@ const courseMaterialService=require("../service/courseMaterialService")
 const multer=require("multer")
 const CourseMaterial=require("../model/courseMaterialModel")
 const { v4: uuidv4} =require("uuid")
+const authToken=require("../middleware/authToken")
 //we can rout request
 //const courseMat={}
 
@@ -13,7 +14,7 @@ const storage=multer.memoryStorage()
 const upload=multer({storage: storage})
 
 /////////////path,              function
-router.get(courseMaterialURL,async (req,res)=>{
+router.get(courseMaterialURL,authToken,async (req,res)=>{
 try {
     const allMaterials=await courseMaterialService.getAllCourseMaterials()
     return res.json(allMaterials)
